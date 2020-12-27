@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 function Header() {
     return (
@@ -86,9 +87,9 @@ function Header() {
                                         </ul>
                                     </div>
                                     <div className="brand-logo">
-                                        <a href="/">
+                                        <Link to="/">
                                             <img src="../assets/images/layout-1/logo/logo.png" className="img-fluid  " alt="logo-header" />
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className="menu-right">
@@ -100,7 +101,7 @@ function Header() {
                                                     <div className="mobile-back text-right">Back<i className="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                                                 </li>
                                                 <li>
-                                                    <a href="/">Home</a>
+                                                    <Link to='/'>Home</Link>
                                                     <ul>
                                                         <li><a target="_blank" href="index.html">layout 1</a></li>
                                                         <li><a target="_blank" href="layout-2.html">layout 2</a></li>

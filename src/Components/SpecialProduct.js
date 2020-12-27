@@ -4,8 +4,11 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Slider from "react-slick";
 
-function SpecialProduct() {
+import data from "./data.js";
+import { Link } from 'react-router-dom';
 
+function SpecialProduct() {
+    
     var settings = {
         dots: false,
         lazyLoad: true,
@@ -52,460 +55,74 @@ function SpecialProduct() {
                         <div className="col pr-0">
                             <div className="product-slide-6 no-arrow mb--10">
                                 <Slider {...settings}>
-                                    <div>
-                                        <div className="product-box">
-                                            <div className="product-imgbox">
-                                                <div className="product-front">
-                                                    <img src="../assets/images/layout-1/product/1.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-back">
-                                                    <img src="../assets/images/layout-1/product/a1.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-icon">
-                                                    <button  onclick="openCart()" type="button" >
-                                                        <i className="ti-bag"></i>
-                                                    </button>
-                                                    <a href="javascript:void(0)" title="Add to Wishlist">
-                                                        <i className="ti-heart" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                        <i className="ti-search" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="compare.html" title="Compare">
-                                                        <i className="fa fa-exchange" aria-hidden="true"></i>
-                                                    </a>
-                                                </div>
-                                                <div className="new-label">
-                                                    <div>new</div>
-                                                </div>
-                                                <div className="on-sale">
-                                                    on sale
-                                                </div>
-                                            </div>
-                                            <div className="product-detail">
-                                                <div className="detail-title">
-                                                    <div className="detail-left">
-                                                        <div className="rating-star">
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                        </div>
-                                                        <a href="#">
-                                                            <h6 className="price-title">
-                                                                reader will be distracted.
-                                                            </h6>
+                                    { data.products.map(product=>
+                                        <div>
+                                            <div className="product-box">
+                                                <div className="product-imgbox">
+                                                    <div className="product-front">
+                                                        <Link to={'/products/' + product.id}>
+                                                            <img src={product.front_image} className="img-fluid  " alt="product" />
+                                                        </Link>
+                                                    </div>
+                                                    <div className="product-back">
+                                                        <Link to={'/products/' + product.id}>
+                                                            <img src={product.back_image} className="img-fluid  " alt="product" />
+                                                        </Link>
+                                                    </div>
+                                                    <div className="product-icon">
+                                                        <button onclick="openCart()" type="button" >
+                                                            <i className="ti-bag"></i>
+                                                        </button>
+                                                        <a href="javascript:void(0)" title="Add to Wishlist">
+                                                            <i className="ti-heart" aria-hidden="true"></i>
+                                                        </a>
+                                                        <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
+                                                            <i className="ti-search" aria-hidden="true"></i>
+                                                        </a>
+                                                        <a href="compare.html" title="Compare">
+                                                            <i className="fa fa-exchange" aria-hidden="true"></i>
                                                         </a>
                                                     </div>
-                                                    <div className="detail-right">
-                                                        <div className="check-price">
-                                                            $ 56.21
+                                                    <div className="new-label">
+                                                        <div>{product.tag}</div>
+                                                    </div>
+                                                    <div className="on-sale">
+                                                        {product.availability}
+                                                </div>
+                                                </div>
+                                                <div className="product-detail">
+                                                    <div className="detail-title">
+                                                        <div className="detail-left">
+                                                            <div className="rating-star">
+                                                                <i className="fa fa-star"></i>
+                                                                <i className="fa fa-star"></i>
+                                                                <i className="fa fa-star"></i>
+                                                                <i className="fa fa-star"></i>
+                                                                <i className="fa fa-star"></i>
+                                                            </div>
+                                                            <Link to={'/products/'+product.id}>
+                                                                <h6 className="price-title">
+                                                                    {product.price_title}
+                                                                </h6>
+                                                            </Link>
                                                         </div>
-                                                        <div className="price">
+                                                        <div className="detail-right">
+                                                            <div className="check-price">
+                                                                {product.check_price}
+                                                        </div>
                                                             <div className="price">
-                                                                $ 24.05
+                                                                <div className="price">
+                                                                    {product.price}
+                                                            </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <div className="product-box">
-                                            <div className="product-imgbox">
-                                                <div className="product-front">
-                                                    <img src="../assets/images/layout-1/product/2.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-back">
-                                                    <img src="../assets/images/layout-1/product/a2.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-icon">
-                                                    <button  onclick="openCart()" type="button" >
-                                                        <i className="ti-bag" ></i>
-                                                    </button>
-                                                    <a href="javascript:void(0)" title="Add to Wishlist">
-                                                        <i className="ti-heart" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                        <i className="ti-search" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="compare.html" title="Compare">
-                                                        <i className="fa fa-exchange" aria-hidden="true"></i>
-                                                    </a>
-
-                                                </div>
-                                            </div>
-                                            <div className="product-detail">
-                                                <div className="detail-title">
-                                                    <div className="detail-left">
-                                                        <div className="rating-star">
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                        </div>
-                                                        <a href="#">
-                                                            <h6 className="price-title">
-                                                                reader will be distracted.
-                                                            </h6>
-                                                        </a>
-                                                    </div>
-                                                    <div className="detail-right">
-                                                        <div className="check-price">
-                                                            $ 56.21
-                                                        </div>
-                                                        <div className="price">
-                                                            <div className="price">
-                                                                $ 24.05
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="product-box">
-                                            <div className="product-imgbox">
-                                                <div className="product-front">
-                                                    <img src="../assets/images/layout-1/product/3.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-back">
-                                                    <img src="../assets/images/layout-1/product/a3.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-icon">
-                                                    <button  onclick="openCart()" type="button" >
-                                                        <i className="ti-bag" ></i>
-                                                    </button>
-                                                    <a href="javascript:void(0)" title="Add to Wishlist">
-                                                        <i className="ti-heart" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                        <i className="ti-search" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="compare.html" title="Compare">
-                                                        <i className="fa fa-exchange" aria-hidden="true"></i>
-                                                    </a>
-
-                                                </div>
-                                                <div className="new-label">
-                                                    <div>new</div>
-                                                </div>
-                                            </div>
-                                            <div className="product-detail">
-                                                <div className="detail-title">
-                                                    <div className="detail-left">
-                                                        <div className="rating-star">
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                        </div>
-                                                        <a href="#">
-                                                            <h6 className="price-title">
-                                                                reader will be distracted.
-                                                            </h6>
-                                                        </a>
-                                                    </div>
-                                                    <div className="detail-right">
-                                                        <div className="check-price">
-                                                            $ 56.21
-                                                        </div>
-                                                        <div className="price">
-                                                            <div className="price">
-                                                                $ 24.05
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="product-box">
-                                            <div className="product-imgbox">
-                                                <div className="product-front">
-                                                    <img src="../assets/images/layout-1/product/4.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-back">
-                                                    <img src="../assets/images/layout-1/product/a4.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-icon">
-                                                    <button  onclick="openCart()" type="button" >
-                                                        <i className="ti-bag" ></i>
-                                                    </button>
-                                                    <a href="javascript:void(0)" title="Add to Wishlist">
-                                                        <i className="ti-heart" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                        <i className="ti-search" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="compare.html" title="Compare">
-                                                        <i className="fa fa-exchange" aria-hidden="true"></i>
-                                                    </a>
-
-                                                </div>
-                                            </div>
-                                            <div className="product-detail">
-                                                <div className="detail-title">
-                                                    <div className="detail-left">
-                                                        <div className="rating-star">
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                        </div>
-                                                        <a href="#">
-                                                            <h6 className="price-title">
-                                                                reader will be distracted.
-                                                            </h6>
-                                                        </a>
-                                                    </div>
-                                                    <div className="detail-right">
-                                                        <div className="check-price">
-                                                            $ 56.21
-                                                        </div>
-                                                        <div className="price">
-                                                            <div className="price">
-                                                                $ 24.05
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="product-box">
-                                            <div className="product-imgbox">
-                                                <div className="product-front">
-                                                    <img src="../assets/images/layout-1/product/5.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-back">
-                                                    <img src="../assets/images/layout-1/product/a5.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-icon">
-                                                    <button  onclick="openCart()" type="button" >
-                                                        <i className="ti-bag" ></i>
-                                                    </button>
-                                                    <a href="javascript:void(0)" title="Add to Wishlist">
-                                                        <i className="ti-heart" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                        <i className="ti-search" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="compare.html" title="Compare">
-                                                        <i className="fa fa-exchange" aria-hidden="true"></i>
-                                                    </a>
-
-                                                </div>
-                                                <div className="new-label">
-                                                    <div>new</div>
-                                                </div>
-                                                <div className="on-sale">
-                                                    on sale
-                                                </div>
-                                            </div>
-                                            <div className="product-detail">
-                                                <div className="detail-title">
-                                                    <div className="detail-left">
-                                                        <div className="rating-star">
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                        </div>
-                                                        <a href="#">
-                                                            <h6 className="price-title">
-                                                                reader will be distracted.
-                                                            </h6>
-                                                        </a>
-                                                    </div>
-                                                    <div className="detail-right">
-                                                        <div className="check-price">
-                                                            $ 56.21
-                                                        </div>
-                                                        <div className="price">
-                                                            <div className="price">
-                                                                $ 24.05
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="product-box">
-                                            <div className="product-imgbox">
-                                                <div className="product-front">
-                                                    <img src="../assets/images/layout-1/product/6.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-back">
-                                                    <img src="../assets/images/layout-1/product/a6.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-icon">
-                                                    <button  onclick="openCart()" type="button" >
-                                                        <i className="ti-bag" ></i>
-                                                    </button>
-                                                    <a href="javascript:void(0)" title="Add to Wishlist">
-                                                        <i className="ti-heart" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                        <i className="ti-search" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="compare.html" title="Compare">
-                                                        <i className="fa fa-exchange" aria-hidden="true"></i>
-                                                    </a>
-
-                                                </div>
-                                            </div>
-                                            <div className="product-detail">
-                                                <div className="detail-title">
-                                                    <div className="detail-left">
-                                                        <div className="rating-star">
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                        </div>
-                                                        <a href="#">
-                                                            <h6 className="price-title">
-                                                                reader will be distracted.
-                                                            </h6>
-                                                        </a>
-                                                    </div>
-                                                    <div className="detail-right">
-                                                        <div className="check-price">
-                                                            $ 56.21
-                                                        </div>
-                                                        <div className="price">
-                                                            <div className="price">
-                                                                $ 24.05
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="product-box">
-                                            <div className="product-imgbox">
-                                                <div className="product-front">
-                                                    <img src="../assets/images/layout-1/product/7.jpg" className="img-fluid"   alt="product" />
-                                                </div>
-                                                <div className="product-back">
-                                                    <img src="../assets/images/layout-1/product/a7.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-icon">
-                                                    <button  onclick="openCart()" type="button" >
-                                                        <i className="ti-bag" ></i>
-                                                    </button>
-                                                    <a href="javascript:void(0)" title="Add to Wishlist">
-                                                        <i className="ti-heart" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                        <i className="ti-search" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="compare.html" title="Compare">
-                                                        <i className="fa fa-exchange" aria-hidden="true"></i>
-                                                    </a>
-
-                                                </div>
-                                            </div>
-                                            <div className="product-detail">
-                                                <div className="detail-title">
-                                                    <div className="detail-left">
-                                                        <div className="rating-star">
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                        </div>
-                                                        <a href="#">
-                                                            <h6 className="price-title">
-                                                                reader will be distracted.
-                                                            </h6>
-                                                        </a>
-                                                    </div>
-                                                    <div className="detail-right">
-                                                        <div className="check-price">
-                                                            $ 56.21
-                                                        </div>
-                                                        <div className="price">
-                                                            <div className="price">
-                                                                $ 24.05
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="product-box">
-                                            <div className="product-imgbox">
-                                                <div className="product-front">
-                                                    <img src="../assets/images/layout-1/product/7.jpg" className="img-fluid"   alt="product" />
-                                                </div>
-                                                <div className="product-back">
-                                                    <img src="../assets/images/layout-1/product/a7.jpg" className="img-fluid  " alt="product" />
-                                                </div>
-                                                <div className="product-icon">
-                                                    <button  onclick="openCart()" type="button" >
-                                                        <i className="ti-bag" ></i>
-                                                    </button>
-                                                    <a href="javascript:void(0)" title="Add to Wishlist">
-                                                        <i className="ti-heart" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                        <i className="ti-search" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="compare.html" title="Compare">
-                                                        <i className="fa fa-exchange" aria-hidden="true"></i>
-                                                    </a>
-
-                                                </div>
-                                            </div>
-                                            <div className="product-detail">
-                                                <div className="detail-title">
-                                                    <div className="detail-left">
-                                                        <div className="rating-star">
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                            <i className="fa fa-star"></i>
-                                                        </div>
-                                                        <a href="#">
-                                                            <h6 className="price-title">
-                                                                reader will be distracted.
-                                                            </h6>
-                                                        </a>
-                                                    </div>
-                                                    <div className="detail-right">
-                                                        <div className="check-price">
-                                                            $ 56.21
-                                                        </div>
-                                                        <div className="price">
-                                                            <div className="price">
-                                                                $ 24.05
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    )}
+                                    
+                                    
                                 </Slider>
                             </div>
                         </div>
