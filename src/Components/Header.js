@@ -1,6 +1,15 @@
+import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
 function Header() {
+
+    const [showCategoryNav, setShowCategoryNav] = useState("");
+    useEffect(() => {
+        if (window.location.pathname === '/') {
+            setShowCategoryNav('show')
+        }
+    });
+
     return (
         <header>
             <div className="mobile-fix-option"></div>
@@ -79,7 +88,7 @@ function Header() {
                                             </li>
                                             <li>
                                                 <a className="mor-slide-click">
-                                                    mor category
+                                                    more category
                                             <i className="fa fa-angle-down pro-down" ></i>
                                                     <i className="fa fa-angle-up pro-up" ></i>
                                                 </a>
@@ -432,7 +441,7 @@ function Header() {
                                                 </button>
                                                 <h5 className="mb-0 ml-3 text-white title-font">Shop by category</h5>
                                             </nav>
-                                            <div className="collapse show nav-desk" id="navbarToggleExternalContent">
+                                            <div className={`collapse ${showCategoryNav} nav-desk`} id="navbarToggleExternalContent">
                                                 <ul className="nav-cat title-font">
                                                     <li> <img src="../assets/images/layout-1/nav-img/01.png" alt="catergory-product" /> <a href='/' >western ware</a></li>
                                                     <li> <img src="../assets/images/layout-1/nav-img/02.png" alt="catergory-product" /> <a href='/' >TV, Appliances</a></li>
@@ -447,7 +456,7 @@ function Header() {
                                                     <li> <img src="../assets/images/layout-1/nav-img/11.png" alt="catergory-product" /> <a href='/' >Video Games</a></li>
                                                     <li> <img src="../assets/images/layout-1/nav-img/08.png" alt="catergory-product" /> <a href='/' >Sports</a></li>
                                                     <li><button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                        <li> <a className="mor-slide-click">mor category <i className="fa fa-angle-up pro-up"></i></a></li>
+                                                        <li> <a className="mor-slide-click">more category <i className="fa fa-angle-up pro-up"></i></a></li>
                                                     </button></li>
                                                     <li className="mor-slide-open">
                                                         <div id="collapseOne" className="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">

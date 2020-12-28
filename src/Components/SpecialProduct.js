@@ -4,10 +4,10 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Slider from "react-slick";
 
-import data from "./data.js";
+// import data from "./data.js";
 import { Link } from 'react-router-dom';
 
-function SpecialProduct() {
+function SpecialProduct(props) {
     
     var settings = {
         dots: false,
@@ -45,18 +45,19 @@ function SpecialProduct() {
 
     return (
         <React.Fragment>
+            {window.location.pathname === "/" ? 
             <div className="title1 section-my-space">
                 <h4>Special Products</h4>
-            </div>
-
+            </div>: ""}
+            
             <section className="product section-big-pb-space">
                 <div className="custom-container">
                     <div className="row ">
                         <div className="col pr-0">
                             <div className="product-slide-6 no-arrow mb--10">
                                 <Slider {...settings}>
-                                    { data.products.map(product=>
-                                        <div>
+                                    { props.products.map(product=>
+                                        <div key={product.id}>
                                             <div className="product-box">
                                                 <div className="product-imgbox">
                                                     <div className="product-front">

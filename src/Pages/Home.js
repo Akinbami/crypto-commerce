@@ -1,3 +1,4 @@
+import {useState, useEffect} from 'react';
 import BannerSlider from '../Components/Slider';
 import Header from '../Components/Header';
 import HotDeals from '../Components/HotDeals';
@@ -11,10 +12,32 @@ import LattestBlog from '../Components/LattestBlog';
 import ExtraCategory from '../Components/ExtraCategory';
 import SpecialProduct from '../Components/SpecialProduct';
 import Testimonial from '../Components/Testimonial';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
 function Home() {
+    // const [products, setProducts] = useState([])
+    const productList = useSelector(state => state.productList)
+
+    const { products, loading, error } = productList;
+
+    const dispatch = useDispatch();
+    
+    useEffect( () => {
+        dispatch(listProducts())
+        // const fetchData = async () =>{
+        //     const {data} = await axios.get('/api/products');
+        //     console.log("this is the data ", data)
+        //     setProducts(data.data.products);
+        // }
+
+        // fetchData();
+        return () => {
+            
+        }
+    }, [])
     return (
         <div className="Home">
                 <Header />
@@ -184,7 +207,7 @@ function Home() {
 
                 <ExtraCategory />
 
-                <SpecialProduct />
+                <SpecialProduct products={products} />
 
                 <Testimonial />
 
