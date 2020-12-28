@@ -12,8 +12,8 @@ import LattestBlog from '../Components/LattestBlog';
 import ExtraCategory from '../Components/ExtraCategory';
 import SpecialProduct from '../Components/SpecialProduct';
 import Testimonial from '../Components/Testimonial';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
+import { listProducts } from '../Actions/productActions';
 
 
 
@@ -21,12 +21,14 @@ function Home() {
     // const [products, setProducts] = useState([])
     const productList = useSelector(state => state.productList)
 
+    console.log("this is the product list from home ",productList)
+
     const { products, loading, error } = productList;
 
     const dispatch = useDispatch();
     
     useEffect( () => {
-        dispatch(listProducts())
+        dispatch(listProducts());
         // const fetchData = async () =>{
         //     const {data} = await axios.get('/api/products');
         //     console.log("this is the data ", data)
@@ -38,7 +40,7 @@ function Home() {
             
         }
     }, [])
-    return (
+    return loading? <div>Loading...</div>:error? <div>error</div>: (
         <div className="Home">
                 <Header />
                 <BannerSlider />
